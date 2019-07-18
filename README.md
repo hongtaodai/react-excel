@@ -5,7 +5,7 @@ React 解析 Excel
 
 ## Demo & Examples
 本程序非常简单，提供了一个极简的使用方法来解析excel
-![image](https://github.com/hongtaodai/react-excel/tree/master/src/imgs/a.gif)
+![image](https://github.com/hongtaodai/react-excel/blob/master/src/src/imgs/a.gif)
 
 To build the examples locally, run:
 
