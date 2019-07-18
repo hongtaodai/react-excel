@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ReactExcel from './react-excel';
+import { Table } from 'antd'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+class App extends React.Component  {
+  state={
+    dataSource:[],
+    columns:[]
+  }
+  // 处理excel成功
+  success=(data,columns)=>{
+    this.setState({
+      dataSource:data,
+      columns:columns
+    })
+  }
+  render(){    
+    return (
+      <div style={{textAlign:'center',margin:20}}>
+        <ReactExcel 
+          success={this.success}
+          processData={this.processData}
+          importBtnTxt='点我上传一个excel试试'
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        </ReactExcel>
+        <br/>
+        <br/>
+        <Table dataSource={this.state.dataSource} columns={this.state.columns} ></Table>
+      </div>
+    );
+  }
 }
 
 export default App;
